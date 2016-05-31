@@ -28,7 +28,7 @@ class wakeupException extends Exception {}
 
 
 try{
-	wakeupMachine($con, $argv[1], $argv[2]);//$_GET['machine_id'], $_GET['token']);
+	wakeupMachine($con, $_GET['machine_id'], $_GET['token']);
 } catch(wakeupException $we){
 	errorResponse($we->getMessage());
 }
