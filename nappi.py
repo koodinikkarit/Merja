@@ -8,7 +8,7 @@ GPIO.setup(4,GPIO.IN)
 pressed = False
 
 def buttonPressed():
-	conn = httplib.HTTPConnection("192.168.180.23:1337")
+	conn = httplib.HTTPConnection("taisto.ths.dom:1337")
 	conn.request("GET", "/api?con=7&cpu=2")
 	return True
 
