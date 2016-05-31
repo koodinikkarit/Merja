@@ -31,5 +31,8 @@ while True:
 		pressed = True
 		print 'moi'
 		buttonPressed()
+		wakeuptykkikone()
+		wakeupnstreamkone()
+		wakeupkstreamkone()
 	sleep(0.05)
 
