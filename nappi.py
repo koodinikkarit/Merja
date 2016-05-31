@@ -19,7 +19,7 @@ def wakeupnstreamkone():
 	conn = httplib.HTTPConnection("wakeup.ths.dom")
 	conn.request("GET", "/api/?machine_id=2")
 	
-def wakeupnstreamkone():
+def wakeupkstreamkone():
 	conn = httplib.HTTPConnection("wakeup.ths.dom")
 	conn.request("GET", "/api/?machine_id=7")
 	
