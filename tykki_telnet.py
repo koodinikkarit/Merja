@@ -1,6 +1,7 @@
 import telnetlib
+import config
 
-tncon = telnetlib.Telnet("192.168.180.10")
+tncon = telnetlib.Telnet(config.url["tykki"])
 
 
 def powerup():
