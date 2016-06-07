@@ -1,28 +1,15 @@
 import httplib
 import RPi.GPIO as GPIO
+import config
+import http_funktiot
 from time import sleep
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.IN)
 
 pressed = False
 
-def buttonPressed():
-	conn = httplib.HTTPConnection("taisto.ths.dom:1337")
-	conn.request("GET", "/api?con=7&cpu=2")
-
-def wakeuptykkikone():
-	conn = httplib.HTTPConnection("wakeup.ths.dom")
-	conn.request("GET", "/api/?machine_id=1")
-	
-def wakeupnstreamkone():
-	conn = httplib.HTTPConnection("wakeup.ths.dom")
-	conn.request("GET", "/api/?machine_id=2")
-	
-def wakeupkstreamkone():
-	conn = httplib.HTTPConnection("wakeup.ths.dom")
-	conn.request("GET", "/api/?machine_id=7")
-	
 
 while True:
 	if(GPIO.input(4) == True):
@@ -30,9 +17,11 @@ while True:
 	elif(GPIO.input(4) == False and not pressed):
 		pressed = True
 		print 'moi'
-		buttonPressed()
-		wakeuptykkikone()
-		wakeupnstreamkone()
-		wakeupkstreamkone()
+
+		# these functions are in their own file
+		http_funktiot.taistodefault()
+		http_funktiot.wakeuptykkikone()
+		http_funktiot.wakeupnstreamkone()
+		http_funktiot.wakeupkstreamkone()
 	sleep(0.05)
 
